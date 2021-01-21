@@ -44,19 +44,20 @@ public class PlacementIndicatorScript : MonoBehaviour
         if (RayCastHitList.Count > 0)
         {
             this.transform.position = RayCastHitList[0].pose.position;
-            this.transform.rotation= RayCastHitList[0].pose.rotation;
+            this.transform.rotation = RayCastHitList[0].pose.rotation;
 
             if (!VisualMarker.activeInHierarchy && PlacementTrigger)
             {
                 VisualMarker.SetActive(true);
             }
-        }
 
-        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began && PlacementTrigger)
-        {
-            PlacemanetObject = Instantiate(PreFab, this.transform.position, this.transform.rotation);
-            VisualMarker.SetActive(false);
-            PlacementTrigger = false;
+
+            if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began && PlacementTrigger)
+            {
+                PlacemanetObject = Instantiate(PreFab, this.transform.position, this.transform.rotation);
+                VisualMarker.SetActive(false);
+                PlacementTrigger = false;
+            }
         }
     }
 
