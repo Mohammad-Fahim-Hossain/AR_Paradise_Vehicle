@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class DrivingScript : MonoBehaviour
 {
@@ -18,8 +19,8 @@ public class DrivingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float Angle = MaxAngle * Input.GetAxis("Horizontal");
-        float Torque = MaxTorque * Input.GetAxis("Vertical");
+        float Angle = MaxAngle * CrossPlatformInputManager.GetAxis("Horizontal");
+        float Torque = MaxTorque * CrossPlatformInputManager.GetAxis("Vertical");
 
         wheelCollieders[0].steerAngle = Angle;
         wheelCollieders[1].steerAngle = Angle;
